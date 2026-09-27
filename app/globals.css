@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink:    #1a1612;
+  --color-paper:  #f0ebe0;
+  --color-warm:   #c8ad86;
+  --color-gold:   #b8933a;
+  --color-muted:  #a89880;
+  --color-dark:   #0d0b09;
+  --font-serif:   'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-sans:    'Inter', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-dark);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  /* Базовый размер шрифта увеличен */
+  font-size: 19px;
+  line-height: 1.88;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: rgba(196,168,130,0.28); color: var(--color-paper); }
+
+.font-serif { font-family: var(--font-serif); }
+
+::-webkit-scrollbar       { width: 3px; }
+::-webkit-scrollbar-track { background: var(--color-dark); }
+::-webkit-scrollbar-thumb { background: var(--color-warm); border-radius: 2px; }
+
+/* ── Увеличенный caption ── */
+.text-caption {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ── Noise ── */
+.noise::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.25;
+}
+
+/* ── Глобальные свечения на секциях ── */
+/* Каждая секция получает псевдоэлементы с голубым и зелёным светом */
+section {
+  position: relative;
+}
+
+/* ── Divider ── */
+.divider {
+  width: 1px; height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--color-warm), transparent);
+  margin: 0 auto;
+}
+
+/* ── Chat bubbles ── */
+.chat-bubble-left {
+  background: rgba(196,168,130,0.09);
+  border: 1px solid rgba(196,168,130,0.20);
+  border-radius: 0 18px 18px 18px;
+}
+.chat-bubble-right {
+  background: rgba(240,235,224,0.07);
+  border: 1px solid rgba(240,235,224,0.13);
+  border-radius: 18px 0 18px 18px;
+}
+
+/* ── Phone ── */
+.phone-screen {
+  background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f1117 100%);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 38px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* ── Song card ── */
+.song-card {
+  background: rgba(26,22,18,0.65);
+  border: 1px solid rgba(196,168,130,0.12);
+  transition: all 0.4s ease;
+}
+.song-card:hover {
+  background: rgba(56,140,200,0.06);
+  border-color: rgba(100,165,220,0.28);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(40,120,200,0.10);
+}
+
+/* ── Story card ── */
+.story-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(196,168,130,0.09);
+  transition: all 0.5s ease;
+}
+.story-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,11,9,0.96) 0%, rgba(13,11,9,0.30) 55%, transparent 100%);
+  z-index: 1;
+}
+
+/* ── Glow ── */
+.glow-warm { text-shadow: 0 0 80px rgba(196,168,130,0.25); }
+.glow-blue { text-shadow: 0 0 60px rgba(56,140,200,0.35); }
+.glow-green { text-shadow: 0 0 60px rgba(40,160,100,0.30); }
+
+/* ── Tap targets ── */
+a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+button { min-height: 44px; min-width: 44px; }
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  body { font-size: 17px; line-height: 1.9; }
+}
