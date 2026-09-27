@@ -13,9 +13,9 @@
     "next": "16.3.3",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "bcryptjs": "5.1.1",
-    "jsonwebtoken": "9.0.2",
-    "jose": "5.2.0"
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "jose": "^5.2.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
