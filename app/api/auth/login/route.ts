@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import * as crypto from 'crypto'
 
-const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'admin'
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'password'
-const JWT_SECRET = process.env.JWT_SECRET || 'dev-secret-do-not-use-in-production'
+// Чтение переменных окружения с поддержкой Netlify
+const ADMIN_USERNAME = process.env.ADMIN_USERNAME || process.env.NEXT_PUBLIC_ADMIN_USERNAME || 'admin'
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'password'
+const JWT_SECRET = process.env.JWT_SECRET || process.env.NEXT_PUBLIC_JWT_SECRET || 'dev-secret-do-not-use-in-production'
 
 // Проверка наличия переменных окружения в продакшене (отключена для сборки)
 // if (process.env.NODE_ENV === 'production' && (!ADMIN_USERNAME || !ADMIN_PASSWORD || !JWT_SECRET)) {
