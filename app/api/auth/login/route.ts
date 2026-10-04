@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
 import * as crypto from 'crypto'
 
-// Чтение переменных окружения с поддержкой Netlify
-const ADMIN_USERNAME = process.env.ADMIN_USERNAME || process.env.NEXT_PUBLIC_ADMIN_USERNAME || 'admin'
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'password'
-const JWT_SECRET = process.env.JWT_SECRET || process.env.NEXT_PUBLIC_JWT_SECRET || 'dev-secret-do-not-use-in-production'
+// Временное решение: жёстко заданные значения для теста
+const ADMIN_USERNAME = 'Olgaruban54234_'
+const ADMIN_PASSWORD = '$*_D49858_Dbv_%fb-_-'
+const JWT_SECRET = 'a8f5e9c2b1d4f7a3e6b8c1d9f2e5a7b4c8d1e3f6a9b2c5d8e1f4a7b9c2d5e8f1'
+
+// Чтение переменных окружения с поддержкой Netlify (закомментировано для теста)
+// const ADMIN_USERNAME = process.env.ADMIN_USERNAME || process.env.NEXT_PUBLIC_ADMIN_USERNAME || 'admin'
+// const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'password'
+// const JWT_SECRET = process.env.JWT_SECRET || process.env.NEXT_PUBLIC_JWT_SECRET || 'dev-secret-do-not-use-in-production'
 
 // Проверка наличия переменных окружения в продакшене (отключена для сборки)
 // if (process.env.NODE_ENV === 'production' && (!ADMIN_USERNAME || !ADMIN_PASSWORD || !JWT_SECRET)) {
