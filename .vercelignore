@@ -1,0 +1,11 @@
+# Files to ignore during Vercel deployment
+*.bat
+desktop.ini
+.vscode
+.idea
+*.log
+/data/comments.json
+fix-photo.bat
+install.bat
+install-jose.bat
+reset-language.html

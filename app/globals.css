@@ -29,6 +29,11 @@ body {
   line-height: 1.88;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  /* Защита от копирования */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 ::selection { background: rgba(196,168,130,0.28); color: var(--color-paper); }
