@@ -37,6 +37,9 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { username, password } = body
 
+    // Логирование для отладки
+    console.log('Login attempt:', { username, adminUser: ADMIN_USERNAME, hasPassword: !!ADMIN_PASSWORD })
+
     // Проверка credentials
     if (username !== ADMIN_USERNAME || password !== ADMIN_PASSWORD) {
       return NextResponse.json(
