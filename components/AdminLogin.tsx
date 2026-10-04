@@ -69,11 +69,16 @@ export default function AdminLogin() {
     setIsLoading(true)
 
     try {
+      console.log('Attempting login with:', { username })
       const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
       })
+
+      console.log('Response status:', res.status)
+      const data = await res.json()
+      console.log('Response data:', data)
 
       if (!res.ok) {
         setError('Invalid credentials')
@@ -86,6 +91,7 @@ export default function AdminLogin() {
       setUsername('')
       setPassword('')
     } catch (err) {
+      console.error('Login error:', err)
       setError('Authentication failed')
     } finally {
       setIsLoading(false)
